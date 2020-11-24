@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachMeSkills-DotNet-API.Core", "TeachMeSkills-DotNet-API.Core\TeachMeSkills-DotNet-API.Core.csproj", "{0C2D23A0-1782-4228-880B-5E9B4D52FB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachMeSkills-DotNet-API.UI", "TeachMeSkills-DotNet-API.UI\TeachMeSkills-DotNet-API.UI.csproj", "{DA461C0E-8535-46F7-8A27-45871F34028A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C2D23A0-1782-4228-880B-5E9B4D52FB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2D23A0-1782-4228-880B-5E9B4D52FB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2D23A0-1782-4228-880B-5E9B4D52FB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2D23A0-1782-4228-880B-5E9B4D52FB96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA461C0E-8535-46F7-8A27-45871F34028A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA461C0E-8535-46F7-8A27-45871F34028A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA461C0E-8535-46F7-8A27-45871F34028A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA461C0E-8535-46F7-8A27-45871F34028A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7702344-A48D-4C71-AC79-17E7590663C7}
+	EndGlobalSection
+EndGlobal
