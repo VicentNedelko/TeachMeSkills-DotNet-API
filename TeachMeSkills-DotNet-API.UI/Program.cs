@@ -6,7 +6,7 @@ namespace TeachMeSkills_DotNet_API.UI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("");
         }
     }
 }
