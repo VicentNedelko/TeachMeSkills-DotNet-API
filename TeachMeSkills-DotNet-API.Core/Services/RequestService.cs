@@ -14,24 +14,34 @@ namespace TeachMeSkills_DotNet_API.Core.Services
     {
         private const string url = "https://api.openbrewerydb.org/";
 
-        public Task<IEnumerable<Brewery>> RequestByState(string s)
+        public async Task<IEnumerable<Brewery>> RequestByState(string s)
         {
+            return await url
+                .AppendPathSegments("breweries")
+                .SetQueryParams()
+                .GetJsonAsync<Brewery[]>();
+        }
+        public async Task<IEnumerable<Brewery>> RequestByName(string str)
+        {
+            return await url.AppendPathSegments("breweries")
+                .SetQueryParam("by_name", str.ToLower())
+                .GetJsonAsync<Brewery[]>();
         }
 
         public async Task<IEnumerable<Brewery>> RequestByType()
         {
             Types type = Types.bar;
             Console.WriteLine("Enter type : ");
-            Console.WriteLine("micro - m" + "; " +
-                                "nano - n" + "; " +
-                                "regional - r" + "; " +
-                                "brewpub - b" + "; " +
-                                "large - l" + "; " +
-                                "planning - p" + "; " +
-                                "bar - a" + "; " +
-                                "contract - c" + "; " +
-                                "proprietor - h" + "; " +
-                                "closed - x");
+            Console.WriteLine("micro - m" + ";\n " +
+                                "nano - n" + ";\n " +
+                                "regional - r" + ";\n " +
+                                "brewpub - b" + ";\n " +
+                                "large - l" + ";\n " +
+                                "planning - p" + ";\n " +
+                                "bar - a" + ";\n " +
+                                "contract - c" + ";\n " +
+                                "proprietor - h" + ";\n " +
+                                "closed - x" + ";\n");
             switch (Console.ReadKey().Key)
             {
                 case ConsoleKey.M:
@@ -80,8 +90,12 @@ namespace TeachMeSkills_DotNet_API.Core.Services
             return brewList;
         }
 
-        public Task<IEnumerable<Brewery>> RequestFullList()
+        public async Task<IEnumerable<Brewery>> RequestFullList()
         {
+            return await url
+                .AppendPathSegments("breweries")
+                .SetQueryParams()
+                .GetJsonAsync<Brewery[]>();
         }
     }
 }
