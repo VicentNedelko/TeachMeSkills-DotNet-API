@@ -32,7 +32,8 @@ namespace TeachMeSkills_DotNet_API.Core.Services
         {
             Types type = Types.bar;
             Console.WriteLine("Enter type : ");
-            Console.WriteLine("micro - m" + ";\n " +
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("  micro - m" + ";\n " +
                                 "nano - n" + ";\n " +
                                 "regional - r" + ";\n " +
                                 "brewpub - b" + ";\n " +
@@ -42,6 +43,7 @@ namespace TeachMeSkills_DotNet_API.Core.Services
                                 "contract - c" + ";\n " +
                                 "proprietor - h" + ";\n " +
                                 "closed - x" + ";\n");
+            Console.ForegroundColor = ConsoleColor.White;
             switch (Console.ReadKey().Key)
             {
                 case ConsoleKey.M:

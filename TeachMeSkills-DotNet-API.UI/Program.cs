@@ -122,6 +122,9 @@ namespace TeachMeSkills_DotNet_API.UI
             Console.WriteLine("+++++++++++++++++++++++");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Open recent query - \"O\"");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("+++++++++++++++++++++++");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Exit - \"E\"");
             Console.Write("Enter : ");
         }
