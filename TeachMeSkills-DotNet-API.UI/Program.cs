@@ -13,7 +13,6 @@ namespace TeachMeSkills_DotNet_API.UI
     class Program
     {
         static void Main(string[] args)
-        {
             RequestService reqService = new RequestService();
             Parameters commons = new Parameters();
             while (true)
