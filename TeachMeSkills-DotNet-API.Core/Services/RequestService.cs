@@ -21,12 +21,64 @@ namespace TeachMeSkills_DotNet_API.Core.Services
                 .SetQueryParams()
                 .GetJsonAsync<Brewery[]>();
         }
+        public async Task<IEnumerable<Brewery>> RequestByName(string str)
+        {
+            return await url.AppendPathSegments("breweries")
+                .SetQueryParam("by_name", str.ToLower())
+                .GetJsonAsync<Brewery[]>();
+        }
 
         public async Task<IEnumerable<Brewery>> RequestByType()
         {
-            return await url
-                .AppendPathSegments("breweries")
-                .SetQueryParams()
+            Types type = Types.bar;
+            Console.WriteLine("Enter type : ");
+            Console.WriteLine("micro - m" + ";\n " +
+                                "nano - n" + ";\n " +
+                                "regional - r" + ";\n " +
+                                "brewpub - b" + ";\n " +
+                                "large - l" + ";\n " +
+                                "planning - p" + ";\n " +
+                                "bar - a" + ";\n " +
+                                "contract - c" + ";\n " +
+                                "proprietor - h" + ";\n " +
+                                "closed - x" + ";\n");
+            switch (Console.ReadKey().Key)
+            {
+                case ConsoleKey.M:
+                    type = Types.micro;
+                    break;
+                case ConsoleKey.N:
+                    type = Types.nano;
+                    break;
+                case ConsoleKey.R:
+                    type = Types.regional;
+                    break;
+                case ConsoleKey.B:
+                    type = Types.brewpub;
+                    break;
+                case ConsoleKey.L:
+                    type = Types.large;
+                    break;
+                case ConsoleKey.P:
+                    type = Types.planning;
+                    break;
+                case ConsoleKey.A:
+                    type = Types.bar;
+                    break;
+                case ConsoleKey.C:
+                    type = Types.contract;
+                    break;
+                case ConsoleKey.H:
+                    type = Types.proprietor;
+                    break;
+                case ConsoleKey.X:
+                    type = Types.closed;
+                    break;
+            }
+            Console.WriteLine(type.ToString());
+            Console.ReadKey();
+            return await url.AppendPathSegments("breweries")
+                .SetQueryParam("by_type", type.ToString())
                 .GetJsonAsync<Brewery[]>();
         }
 
