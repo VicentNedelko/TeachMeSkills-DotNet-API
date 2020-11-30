@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TeachMeSkills_DotNet_API.Core.Interfaces;
 using TeachMeSkills_DotNet_API.Core.Models;
+using static TeachMeSkills_DotNet_API.Core.Interfaces.IRequestService;
 
 namespace TeachMeSkills_DotNet_API.Core.Services
 {
@@ -13,12 +14,20 @@ namespace TeachMeSkills_DotNet_API.Core.Services
     {
         private const string url = "https://api.openbrewerydb.org/";
 
-        public Task<IEnumerable<Brewery>> RequestByState(string s)
+        public async Task<IEnumerable<Brewery>> RequestByState(string s)
         {
+            return await url
+                .AppendPathSegments("breweries")
+                .SetQueryParams()
+                .GetJsonAsync<Brewery[]>();
         }
 
-        public Task<IEnumerable<Brewery>> RequestByType()
+        public async Task<IEnumerable<Brewery>> RequestByType()
         {
+            return await url
+                .AppendPathSegments("breweries")
+                .SetQueryParams()
+                .GetJsonAsync<Brewery[]>();
         }
 
         public async Task<IEnumerable<Brewery>> RequestDataByCity(string str)
@@ -29,8 +38,12 @@ namespace TeachMeSkills_DotNet_API.Core.Services
             return brewList;
         }
 
-        public Task<IEnumerable<Brewery>> RequestFullList()
+        public async Task<IEnumerable<Brewery>> RequestFullList()
         {
+            return await url
+                .AppendPathSegments("breweries")
+                .SetQueryParams()
+                .GetJsonAsync<Brewery[]>();
         }
     }
 }
