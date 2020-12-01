@@ -16,22 +16,6 @@ namespace TeachMeSkills_DotNet_API.Core.Services
 
         public async Task<IEnumerable<Brewery>> RequestFullList()
         {
-            var brewList = await url.AppendPathSegment("breweries")
-                .GetJsonAsync<Brewery[]>();
-            return brewList;
-        }
-        public async Task<IEnumerable<Brewery>> RequestByState(string s)
-        {
-            return await url
-                .AppendPathSegments("breweries")
-                .SetQueryParams()
-                .GetJsonAsync<Brewery[]>();
-        }
-        public async Task<IEnumerable<Brewery>> RequestByName(string str)
-        {
-            return await url.AppendPathSegments("breweries")
-                .SetQueryParam("by_name", str.ToLower())
-                .GetJsonAsync<Brewery[]>();
         }
 
         public async Task<IEnumerable<Brewery>> RequestByType()
@@ -96,6 +80,10 @@ namespace TeachMeSkills_DotNet_API.Core.Services
                 .SetQueryParam("by_city", str.ToLower())
                 .GetJsonAsync<Brewery[]>();
             return brewList;
+        }
+
+        public Task<IEnumerable<Brewery>> RequestFullList()
+        {
         }
     }
 }
