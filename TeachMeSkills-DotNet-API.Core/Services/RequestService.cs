@@ -14,8 +14,11 @@ namespace TeachMeSkills_DotNet_API.Core.Services
     {
         private const string url = "https://api.openbrewerydb.org/";
 
-        public Task<IEnumerable<Brewery>> RequestByState(string s)
+        public async Task<IEnumerable<Brewery>> RequestFullList()
         {
+            var brewList = await url.AppendPathSegment("breweries")
+                .GetJsonAsync<Brewery[]>();
+            return brewList;
         }
 
         public async Task<IEnumerable<Brewery>> RequestByType()
@@ -80,8 +83,11 @@ namespace TeachMeSkills_DotNet_API.Core.Services
             return brewList;
         }
 
-        public Task<IEnumerable<Brewery>> RequestFullList()
+        public async Task<IEnumerable<Brewery>> RequestByState(string str)
         {
+            return await url.AppendPathSegments("breweries")
+                .SetQueryParam("by_state", str.ToLower())
+                .GetJsonAsync<Brewery[]>();
         }
     }
 }
