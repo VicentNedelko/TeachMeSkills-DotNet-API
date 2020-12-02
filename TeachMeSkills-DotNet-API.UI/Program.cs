@@ -155,7 +155,7 @@ namespace TeachMeSkills_DotNet_API.UI
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
-                using (FileStream fsr = new FileStream(filePath, FileMode.OpenOrCreate))
+                using (FileStream fsr = new FileStream(filePath, FileMode.Open))
                 {
                     breweries = (IEnumerable<Brewery>)formatter.Deserialize(fsr);
                 }
@@ -166,7 +166,8 @@ namespace TeachMeSkills_DotNet_API.UI
             }
             catch (SerializationException e)
             {
-                Console.WriteLine($"Serialization exception - {e.Message}");
+                Console.WriteLine();
+                Console.WriteLine($"File not found - {e.Message}");
             }
             return breweries;
         }
